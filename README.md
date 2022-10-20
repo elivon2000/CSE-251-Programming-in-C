@@ -12,47 +12,47 @@ The hard point is that some project(e.g. step10，step14，project2) must be com
 
 
 # How to constructe the operating environment
-####1、Install ubuntu 14.04（64bit）
+#### 1、Install ubuntu 14.04（64bit）
 
-#####download it from:
+##### download it from:
 - [ubuntu-14.04-desktop-amd64.iso](http://old-releases.ubuntu.com/releases/trusty/ubuntu-14.04-desktop-amd64.iso)
 
 
 
-####2、Install wxWidgets-2.8.12
+#### 2、Install wxWidgets-2.8.12
 
-#####download it from:
+##### download it from:
 
 - [wxWidgets-2.8.12](https://github.com/wxWidgets/wxWidgets/releases/download/v2.8.12/wxWidgets-2.8.12.tar.gz)
 
-#####Install steps：
+##### Install steps：
 
-######1)Install the dependencies of **wxWidgets**
+###### 1)Install the dependencies of **wxWidgets**
 
 ```
 sudo apt install libgtk2.0-dev
 ```
 
-######2)Unzip and goin the directory of wxWidgets
+###### 2) Unzip and goin the directory of wxWidgets
 
 ```
 tar xvzf  wxWidgets-2.8.12.tar.gz
 cd  wxWidgets-2.8.12
 ```
 
-######3)Configure wxWidgets
+###### 3)Configure wxWidgets
 
 ```
 ./configure --with-regex=builtin --with-gtk --enable-unicode --disable-shared --prefix=/usr/local/wxWidgets
 ```
 
-######4)Install wxWidgets（cost a long time！）
+###### 4)Install wxWidgets（cost a long time！）
 
 ```
 sudo make && make install
 ```
 
-######5)Dynamic link library settings
+###### 5)Dynamic link library settings
 
 5.1)create the wxWidgets.conf file
 
@@ -74,7 +74,7 @@ sudo gedit wxWidgets.conf &
 sudo ldconfig
 ```
 
-######6)PATH setting of wxWidgets
+###### 6)PATH setting of wxWidgets
 
 6.1)open the setting file
 
@@ -96,7 +96,7 @@ export PATH=$WXPATH/bin:$PATH
 source /etc/profile
 ```
 
-######7).check it
+###### 7).check it
 
 ```
 wx-config --version
@@ -104,7 +104,7 @@ wx-config --version
 
 
 
-####3、Install lx11
+#### 3、Install lx11
 
 ```
 sudo apt-get install libx11-dev
@@ -112,7 +112,7 @@ sudo apt-get install libx11-dev
 
 
 
-####4、compile and execute the source code(take project 2 as an example)
+#### 4、compile and execute the source code(take project 2 as an example)
 
 I failed with the original way to compile and run the project.However I did it like this:
 
