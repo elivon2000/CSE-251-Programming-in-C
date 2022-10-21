@@ -5,11 +5,9 @@ The course "CSE 251 Programming in C" from Michigan State University is one of m
 
 > The course page is https://www.cse.msu.edu/~cse251/index.html.
 
-The hard point is that some project(e.g. step10，step14，project2) must be compiled and executed on the lab machine at Michigan State University.But I found a way to do it in my personal machine.I had wrote down the way in "**How to constructe the operating environment**"
+The hard point is that some project(e.g. step10，step14，project2) must be compiled and executed on the lab machine at Michigan State University.But I found a way to do it in my personal machine.I had wrote down the way in "**How to constructe the operating environment**".
 
-
-
-
+And the other labs  run in common linux. Mine run in ubuntu 18, after I code them with vscode.
 
 # How to constructe the operating environment
 #### 1、Install ubuntu 14.04（64bit）
