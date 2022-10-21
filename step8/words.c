@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /*
- * Name : <Insert name>
+ * Name : elivon
  * Program to experiment with character arrays
  */
 
@@ -24,7 +24,7 @@ int main()
   do
   {
     c = getchar();
-    if (c != ' ' && c != '.' && len <= MaxWord)
+    if (c != ' ' && c != '.' && c != '\n' && c != '\r' && c != '\t' && len < MaxWord)
     {
       /* This is a character of a word */
       str[len] = c;
@@ -44,20 +44,22 @@ int main()
         if (len > maxLen)
         {
           maxLen = len;
-          for (index = 0; index < maxLen; index++)
-          {
+          for (index = 0; index <= len; index++)
+          { // copy the str and end with '\0'
             longestWord[index] = str[index];
           }
-          longestWord[maxLen] = 0;
         }
       }
       len = 0;
+      if (c != ' ' && c != '.' && c != '\n' && c != '\r' && c != '\t')
+      {
+        str[len] = c;
+        len++;
+      }
     }
 
   } while (c != '.');
   aveLen = (double)lenthCount / (double)wordsCount;
   printf("2)The average word length is %.2lf\n", aveLen);
   printf("3)The longest word entered is %s.\n", longestWord);
-
-  system("pause");
 }

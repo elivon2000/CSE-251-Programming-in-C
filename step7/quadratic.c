@@ -18,7 +18,6 @@ int main()
   /* Display the results */
   printf("Zero 1: %f + %fj\n", z1r, z1i);
   printf("Zero 2: %f + %fj\n", z2r, z2i);
-  system("pause");
 }
 
 /*

@@ -24,7 +24,7 @@ int main()
     scanf("%d", &f);
     if (f < 0)
     {
-      printf("The number must be >= 0!");
+      printf("The number must be >= 0!\n");
     }
     else
     {
@@ -38,7 +38,5 @@ int main()
       printf("%d! = %d\n", f, fac);
     }
   }
-
-  system("pause");
   return 0;
 }

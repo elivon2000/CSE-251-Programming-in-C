@@ -44,7 +44,7 @@ int main()
   printf("2) married filing jointly\n");
   printf("3) married filing separately\n");
   printf("Please enter a number: ");
-  scanf("%d", &filing_status);
+  scanf("%u", &filing_status);
   if (!(filing_status >= 1 && filing_status <= 3))
   {
     printf("Your enter a wrong filing status!");
@@ -95,6 +95,5 @@ int main()
   }
   printf("Your tax is %.2lf\n", tax);
 
-  system("pause");
   return 0;
 }

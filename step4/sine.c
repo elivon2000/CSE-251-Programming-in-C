@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <math.h>
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 int main()
 {
   int numSteps = 40;
@@ -32,5 +36,5 @@ int main()
     else
       printf("*\n");
   }
-  system("pause");
+  return 0;
 }

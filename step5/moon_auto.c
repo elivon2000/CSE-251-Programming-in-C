@@ -4,9 +4,9 @@
 #include <stdbool.h>
 
 /*
- * Simple lunar lander program.
+ * Simple lunar lander program,find the best landing.
  * By:  elivon
- * Best landing: Time = 15 seconds, Fuel = 85.0, Velocity = -1.95
+ * Best landing: Time = 13 seconds, Fuel = 87.9, Velocity = -2.99
  */
 const double g = -1.63;   /* Moon gravity in m/s^2 */
 const double power = 1.5; /* Acceleration per pound of fuel */
@@ -33,16 +33,14 @@ int main()
     seconds++;
   }
   printf("Best landing: \n");
-  printf("Time = %d seconds, Altitude = %.2f, Velocity = %.2f, Fuel = %.1f\n",
+  printf("Time = %d seconds, Altitude = %.2f, Velocity = %.2f, Fuel = %.1f\n\n",
          seconds, altitude, velocity, fuel);
-
-  system("pause");
   return 0;
 }
 
 bool checklive(double h, double v)
 {
-  // test the condition can be live or not
+  // test the condition will crash or not
   while (h > 0 && v < 0)
   {
     v = v + g + 5 * power;
@@ -66,7 +64,7 @@ double findMinBurn(double h, double v)
   {
     while (up - low > 0.01)
     {
-      // 精度为2位小数
+      // precision=0.01
       // up==>live low==>dead
       mid = 0.5 * (low + up);
       if (checklive_burn(h, v, mid))

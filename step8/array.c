@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /*
- * Name : <Insert name>
+ * Name : elivon
  * Program to experiment with arrays
  */
 
@@ -44,7 +44,7 @@ int main()
   printf("The highest grossing film is: %s\n", names[highestGrossIndex]);
 
   for (index = 0; index < MaxGrosses; index++)
-  { //根据每个限定值，查找最大票房电影
+  { // with the max gross limited,find the highest gross
     highestGross = 0;
     highestGrossIndex = -1;
     for (i = 0; i < NumMovies; i++)
@@ -65,5 +65,4 @@ int main()
              maxGross[index], names[highestGrossIndex], highestGrossIndex + 1);
     }
   }
-  system("pause");
 }

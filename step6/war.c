@@ -4,14 +4,14 @@
 #include <time.h>
 
 /*
- * Name : <Insert name here>
+ * Name : elivon
  * Program to draw playing cards
  */
 void PrintCard(int card, int suit);
 int CompareCard(int card1, int suit1, int card2, int suit2);
 int main()
 {
-  int suit, card;
+  // int suit, card;
   int suit1, card1, suit2, card2;
   int winner;
   /*
@@ -35,9 +35,10 @@ int main()
   printf("\n");
 
   winner = CompareCard(card1, suit1, card2, suit2);
-  printf("The winner is player %d", winner);
-  printf("\n");
-  system("pause");
+  if (winner != 0)
+    printf("Player %d wins\n\n", winner);
+  else
+    printf("There is a tie\n\n");
 }
 
 void PrintCard(int card, int suit)

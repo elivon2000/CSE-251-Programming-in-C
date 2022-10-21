@@ -6,7 +6,7 @@
 /*
  * Simple lunar lander program.
  * By:  elivon
- * Best landing: Time = 15 seconds, Fuel = 85.0, Velocity = -1.95
+ * Best landing: Time = 13 seconds, Fuel = 87.9, Velocity = -2.99
  */
 int main()
 {
@@ -57,5 +57,4 @@ int main()
   {
     printf("Your next of kin have been notified\n");
   }
-  system("pause");
 }
