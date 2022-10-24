@@ -14,5 +14,5 @@ robot64: robot.o
 	g++ -o robot robot.o -lm libRobotLib64.a `wx-config --libs` -lX11
 
 clean:	
-	rm -rf robot *.o
+	rm -f robot *.o
 

@@ -24,7 +24,7 @@ int main()
   /* Input the transistor */
   trans[0] = InputTransistor();
 
-  if (InputYesOrNo("Would you like to enter another transistor (Y/N)? "))
+  while (InputYesOrNo("Would you like to enter another transistor (Y/N)? "))
   {
     /* Increase the space by one transistor */
     newtrans = realloc(trans, sizeof(Tran) * (numTrans + 1));

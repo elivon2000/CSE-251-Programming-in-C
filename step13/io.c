@@ -10,7 +10,7 @@ struct Transistor InputTransistor()
   struct Transistor t1;
   InputString(t1.number, sizeof(t1.number));
   t1.type = InputTransistorType("Input type [1-NPN,2-PNP]: ");
-  t1.caseStyle = InputCaseType("Input type [1-TO18,2-TO92A,3-TO92C,4-TO220,5-TO39]: ");
+  t1.caseStyle = InputCaseStyle("Input type [1-TO18,2-TO92A,3-TO92C,4-TO220,5-TO39]: ");
   t1.pmax = InputPositiveValue("Input pMax: ");
   t1.icmax = InputPositiveValue("Input icMax: ");
   return t1;
@@ -29,12 +29,12 @@ void DisplayTransistor(Tran tran)
     printf("Type: PNP\n");
     break;
   }
-  DisplayCaseType(tran.caseStyle);
+  DisplayCaseStyle(tran.caseStyle);
   printf("pMax: %.3f\n", tran.pmax);
   printf("icMax: %.3f\n", tran.icmax);
 }
 
-void DisplayCaseType(int caseStyle)
+void DisplayCaseStyle(int caseStyle)
 {
   switch (caseStyle)
   {
@@ -113,7 +113,7 @@ int InputTransistorType(char *prompt)
   return value;
 }
 
-int InputCaseType(char *prompt)
+int InputCaseStyle(char *prompt)
 {
   char buffer[100];
   int value = 0;

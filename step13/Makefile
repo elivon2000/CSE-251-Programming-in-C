@@ -8,7 +8,7 @@ io.o:	io.c transistors.h
 	gcc -c -o io.o io.c
 
 clean:
-	rm *.o transistors
+	rm -f *.o transistors
 
 all:
 	gcc -c -o transistors.o transistors.c

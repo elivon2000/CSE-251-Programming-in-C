@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <windows.h>
 
 /*
  * CSE 251 Project 1
@@ -17,6 +16,12 @@
  * 0.1 0.2 138 0.096211811
  *
  */
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define min(a, b) ((a) < (b) ? (a) : (b))
 
 double f(double x);
 double calIntegral(double a, double b, int n);
@@ -51,8 +56,6 @@ int main()
     printf("%d: %.9lf %.6e\n", n, I_now, error);
   }
   printf("The integral result is %.9lf\n", I_now);
-
-  system("pause");
 }
 double f(double x)
 {
@@ -64,9 +67,9 @@ double calIntegral(double a, double b, int n)
   double integral = 0;
   double delta = (b - a) / n;
   integral = 0;
-  for (int i = 1; i <= n; i++)
+  for (int i = 0; i < n; i++)
   {
-    integral += f(a + (i - 0.5) * delta);
+    integral += f(a + (i + 0.5) * delta);
   }
   integral *= delta;
   return integral;

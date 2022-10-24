@@ -3,26 +3,14 @@
 #include <stdbool.h>
 
 #include "hanoi.h"
+#include "autosolve.h"
 
 /*
- * Name :  <insert name here>
+ * Name :  elivon
  *
  * Simple Towers of Hanoi game. You can solve it yourself or
  * ask the game to solve it for you.
  */
-
-#define NumPins 3
-#define NumDisks 6
-#define MaxDiskSize 13
-
-void DisplayTower(int tower[NumPins][NumDisks]);
-void Autosolve(int tower[NumPins][NumDisks]);
-void DisplayDisk(int p);
-int InputPin(char *msg, int fm, int to);
-bool CheckDone(int tower[NumPins][NumDisks]);
-void MoveDisk(int tower[NumPins][NumDisks], int fm, int to);
-void Reset(int tower[NumPins][NumDisks]);
-void AutoMove(int tower[NumPins][NumDisks], int num, int fm, int to);
 
 /*
  * The program main entry point
@@ -57,54 +45,6 @@ int main()
   } while (!CheckDone(tower));
 
   return 0;
-}
-
-/*
- * Automatically solve the Towers of Hanoi problem.
- * This resets the tower to the initial state, then
- * solves it one step at a time.
- */
-void Autosolve(int tower[NumPins][NumDisks])
-{
-  /* Always start with empty tower */
-  Reset(tower);
-  AutoMove(tower, NumDisks, 1, 3);
-  DisplayTower(tower);
-}
-
-/*
- * Recursive solution for Towers of Hanoi. Moves num disks from
- * pin fm to pin to.
- */
-void AutoMove(int tower[NumPins][NumDisks], int num, int fm, int to)
-{
-  int unused;
-  char cmd[2];
-
-  /* Base condition, moving one disk */
-  if (num == 1)
-  {
-    /* This is the only time we actually move a disk */
-    DisplayTower(tower);
-
-    printf("Press return");
-    fgets(cmd, sizeof(cmd), stdin);
-
-    MoveDisk(tower, fm, to);
-    return;
-  }
-
-  /* What is the unused pin? */
-  for (unused = 1; unused <= 3; unused++)
-  {
-    if (unused != fm && unused != to)
-      break;
-  }
-
-  /* Recursive solution for fewer pins */
-  AutoMove(tower, num - 1, fm, unused);
-  AutoMove(tower, 1, fm, to);
-  AutoMove(tower, num - 1, unused, to);
 }
 
 /*
@@ -179,7 +119,6 @@ void MoveDisk(int tower[NumPins][NumDisks], int fm, int to)
 int InputPin(char *msg, int fm, int to)
 {
   int val;
-
   /* Allow values in the range [fm, to] */
   do
   {
@@ -187,9 +126,7 @@ int InputPin(char *msg, int fm, int to)
     scanf("%d", &val);
     if (val < fm || val > to)
       val = fm - 1;
-
   } while (val < fm);
-
   return val;
 }
 
@@ -199,64 +136,4 @@ int InputPin(char *msg, int fm, int to)
 bool CheckDone(int tower[NumPins][NumDisks])
 {
   return tower[0][0] == 0 && tower[1][0] == 0;
-}
-
-/*
- * Display the Towers of Hanoi
- */
-void DisplayTower(int tower[NumPins][NumDisks])
-{
-  int i;
-
-  printf("\n ");
-
-  DisplayDisk(0);
-  printf("  ");
-  DisplayDisk(0);
-  printf("  ");
-  DisplayDisk(0);
-  printf("\n");
-
-  for (i = 0; i < NumDisks; i++)
-  {
-    printf(" ");
-
-    /* We display from the top down */
-    DisplayDisk(tower[0][5 - i]);
-    printf("  ");
-    DisplayDisk(tower[1][5 - i]);
-    printf("  ");
-    DisplayDisk(tower[2][5 - i]);
-    printf("\n");
-  }
-
-  for (i = 0; i < NumPins * MaxDiskSize + (NumPins - 1) * 2 + 2; i++)
-    printf("=");
-
-  printf("\n");
-}
-
-/*
- * Display a disk of width p
- */
-void DisplayDisk(int p)
-{
-  int i;
-  int spaceAround = (MaxDiskSize - p) / 2;
-
-  for (i = 0; i < spaceAround; i++)
-    printf(" ");
-
-  if (p == 0)
-  {
-    printf("|");
-  }
-  else
-  {
-    for (i = 0; i < p; i++)
-      printf("O");
-  }
-
-  for (i = 0; i < spaceAround; i++)
-    printf(" ");
 }

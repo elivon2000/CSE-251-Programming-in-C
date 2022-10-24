@@ -8,8 +8,11 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/transistors",
-      "args": [],
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+      "args": [
+        "file1.txt",
+        "file2.txt"
+      ],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],

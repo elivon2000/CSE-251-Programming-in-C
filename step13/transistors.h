@@ -1,11 +1,11 @@
 #ifndef TRANSISTORS_H
 #define TRANSISTORS_H
 
-/* Types */
+/* Type */
 #define NPN 1
 #define PNP 2
 
-/* Cases */
+/* Casestyle */
 #define TO18 1
 #define TO92A 2
 #define TO92C 3
@@ -22,12 +22,12 @@ typedef struct Transistor
 } Tran;
 
 void DisplayTransistor(Tran tran);
-void DisplayCaseType(int caseStyle);
+void DisplayCaseStyle(int caseStyle);
 struct Transistor InputTransistor();
 void InputString(char *str, int max);
 double InputPositiveValue(char *prompt);
 int InputTransistorType(char *prompt);
-int InputCaseType(char *prompt);
+int InputCaseStyle(char *prompt);
 bool InputYesOrNo(char *prompt);
 
 #endif

@@ -10,7 +10,7 @@
         "-g",
         "${fileDirname}/*.c",
         "-o",
-        "${fileDirname}/transistors"
+        "${fileDirname}/hanoi"
       ],
       "options": {
         "cwd": "${fileDirname}"

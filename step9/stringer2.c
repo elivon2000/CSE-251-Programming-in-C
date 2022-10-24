@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /*
  * Name : elivon
@@ -15,24 +15,25 @@ int NumberOfAppearances(char str[], char ch);
 
 int main()
 {
-
   char mySentence[80];
   int len;
 
   printf("Enter a sentence: ");
   fgets(mySentence, 80, stdin);
   len = strlen(mySentence);
-  /* Remove the newline at the end of the line */
   mySentence[len - 1] = '\0';
-  printf("The entered sentence is: \"%s\"\n", mySentence);
-
-  PrintLength(mySentence);
-  Reverse(mySentence);
-  printf("\"%s\"\n", mySentence);
+  printf("The entered sentence is: %s\n", mySentence);
   printf("The number of spaces is: %d\n", NumberOfSpaces(mySentence));
   printf("The number of 'i' is: %d\n", NumberOfAppearances(mySentence, 'i'));
 
-  system("pause");
+  PrintLength(mySentence);
+  Reverse(mySentence);
+  printf("%s\n", mySentence);
+}
+
+void PrintLength(char str[])
+{
+  printf("The string %s is %lu characters long\n", str, strlen(str));
 }
 
 int StringLength(char str[])
@@ -44,10 +45,6 @@ int StringLength(char str[])
   }
   return numChars;
 }
-void PrintLength(char str[])
-{
-  printf("The string \"%s\" is %d characters long\n", str, strlen(str));
-}
 
 void Reverse(char str[])
 {
@@ -56,6 +53,7 @@ void Reverse(char str[])
   char t; /* A temporary place to put a character */
   while (front < back)
   {
+    // printf("front=%d back=%d\n", front, back);
     t = str[front];
     str[front] = str[back];
     str[back] = t;
@@ -63,33 +61,27 @@ void Reverse(char str[])
     back--;
   }
 }
+
 int NumberOfSpaces(char str[])
 {
-  int i, num = 0;
-  char ch = ' ';
+  int i;
+  int numSpaces = 0;
   for (i = 0; str[i] != '\0'; i++)
   {
-    if (str[i] == ch)
-      num++;
+    if (str[i] == ' ')
+      numSpaces++;
   }
-  return num;
+  return numSpaces;
 }
 
-char lowerCase(char ch)
-{ //把大写转成小写
-  if (ch >= 'A' && ch <= 'Z')
-  {
-    ch += (int)'a' - (int)'A';
-  }
-  return ch;
-}
 int NumberOfAppearances(char str[], char ch)
 {
-  int i, num = 0;
-  char lowerChar = lowerCase(ch);
+  int i;
+  int num = 0;
+  int upper_ch = toupper(ch);
   for (i = 0; str[i] != '\0'; i++)
   {
-    if (lowerCase(str[i]) == lowerChar)
+    if (toupper(str[i]) == upper_ch)
       num++;
   }
   return num;

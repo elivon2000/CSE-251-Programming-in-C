@@ -8,7 +8,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/transistors",
+      "program": "${fileDirname}/hanoi",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",

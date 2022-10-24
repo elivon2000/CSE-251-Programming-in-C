@@ -8,9 +8,10 @@
       "args": [
         "-fdiagnostics-color=always",
         "-g",
-        "${fileDirname}/*.c",
+        "${file}",
+        "-lm",
         "-o",
-        "${fileDirname}/transistors"
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
       ],
       "options": {
         "cwd": "${fileDirname}"

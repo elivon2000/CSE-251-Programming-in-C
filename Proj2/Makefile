@@ -15,5 +15,5 @@ elevator_a.o:	elevator_a.c
 	gcc -c -o elevator_a.o elevator_a.c 
 
 clean:
-	rm *.o elevator elevator_a
+	rm -f *.o elevator elevator_a
 
